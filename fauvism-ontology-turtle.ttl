@@ -1,0 +1,600 @@
+@prefix ex: <http://www.example.fr#>.
+@prefix dc: <http://purl.org/dc/terms/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2008/05/skos#>.
+@prefix dbr:<http://dbpedia.org/resource/>.
+@prefix dbo:<http://dbpedia.org/ontology/>.
+
+#Classes:
+
+ex:Physical_Object rdfs:subClassOf ex:Entity;
+skos:prefLabel "Physical object"@en;
+skos:prefLabel "Objet physique"@fr;
+skos:definition "An object is an entity which can persist through time while keeping its identity";
+skos:example "people, trees, statues, chairs, buildings, etc".
+
+foaf:Person rdfs:subClassOf ex:Physical_Object;
+skos:prefLabel "Person"@en;
+skos:prefLabel "Personne"@fr;
+skos:definition "The Person class represents people. Something is a Person if it is a person. We don't nitpic about whether they're alive, dead, real, or imaginary. The Person class is a sub-class of the Agent class, since all people are considered 'agents' in FOAF. (from FOAF's specification)".
+
+dbo:Artwork rdfs:subClassOf ex:Physical_Object;
+skos:prefLabel "Artwork"@en;
+skos:prefLabel "Oeuvre d'art"@fr;
+skos:definition "Une oeuvre d'art est un objet physique qui peut avoir une valeur esthétique ou conceptuelle.";
+skos:example "Peinture, Sculpture, Vitrail, etc.".
+
+dbo:Subject rdfs:subClassOf ex:Entity;
+skos:prefLabel "Subject"@en;
+skos:prefLabel "Sujet"@fr;
+skos:definition "Ce qui constitue la matière, le thème principal d'une activité intellectuelle ou artistique, indépendamment de l'interprétation qui en est faite ou du résultat obtenu.";
+skos:example "Portrait, nature morte, mythe, scène religieuse, etc".
+
+
+
+
+
+#Artiste
+
+dbo:Artist rdfs:subClassOf foaf:Person;
+skos:prefLabel "Artist"@en;
+skos:prefLabel "Artiste"@fr;
+skos:definition "Celui, celle qui cultive un art, qui pratique un des beaux-arts.";
+skos:example "Peintre, Sculpteur, Architecte, etc.".
+
+
+
+
+#Type d'artiste:
+
+
+dbo:Painter rdfs:subClassOf dbo:Artist;
+skos:prefLabel "Painter"@en;
+skos:prefLabel "Peintre"@fr;
+skos:definition "Personne, artiste qui pratique l'art de la peinture.";
+skos:example "Paul Cézanne".
+
+dbo:Engraver rdfs:subClassOf dbo:Artist;
+skos:prefLabel "Engraver"@en;
+skos:prefLabel "Graveur"@fr;
+skos:definition "Personne qui pratique la gravure.";
+skos:example "Bartolomeo Cincani".
+
+
+
+
+
+
+#Type d'oeuvre d'art:
+
+
+dbo:Painting rdfs:subClassOf foaf:Artwork;
+skos:prefLabel "Painting"@en;
+skos:prefLabel "Peinture"@fr;
+skos:definition "Art de peindre; moyen d'expression qui, par le jeu des couleurs et des formes sur une surface, tend à traduire la vision personnelle de l'artiste.";
+skos:example "La route tournante en haut du chemin des Lauves (Cézanne).".
+
+
+#Lieu :
+
+dbo:Place rdfs:subClassOf ex:Physical_Object;
+skos:prefLabel "Place"@en;
+skos:prefLabel "Lieu"@fr;
+skos:definition "Portion déterminée de l'espace.";
+skos:example "Un pays, une ville etc.".
+
+dbo:City rdfs:subClassOf dbo:Place;
+skos:prefLabel "City"@en;
+skos:prefLabel "Ville"@fr;
+skos:definition "Agglomération relativement importante dont les habitants ont des activités professionnelles diversifiées, notamment dans le secteur tertiaire.";
+skos:example "Tours, Chartres, Paris, etc".
+
+dbo:Country rdfs:subClassOf dbo:Place;
+skos:prefLabel "Country"@en;
+skos:prefLabel "Pays"@fr;
+skos:definition "Division territoriale habitée par une collectivité, et constituant une entité géographique et humaine.";
+skos:example "France".
+
+dbo:Region rdfs:subClassOf dbo:Place;
+skos:prefLabel "Region"@en;
+skos:prefLabel "Région"@fr;
+skos:definition "Subdivision administrative d'un pays.";
+skos:example "Région Centre (FR), Caroline du Sud (USA), etc.".
+
+
+dbo:Museum rdfs:subClassOf dbo:Place;
+skos:prefLabel "Museum"@en;
+skos:prefLabel "Musée"@fr;
+skos:altLabel "Institut";
+skos:definition "Établissement dans lequel sont rassemblées et classées des collections d'objets d'intérêt historique, technique, scientifique, artistique, en vue de leur conservation et de leur présentation au public.";
+skos:example "Louvre, Grand Palais, Petit Palais, etc.".
+
+dbo:Private_collection rdfs:subClassOf dbo:Place;
+skos:prefLabel "Private Collection"@en;
+skos:altLabel "Collection Privée"@fr;
+skos:definition "Une collection privée est une collection d'œuvres d'art rassemblées par une personne privée.";
+skos:example "Collection Al-Thani, etc.".
+
+
+
+
+
+
+
+#Le matériel:
+
+dbo:Material_Type rdfs:subClassOf ex:Entity;
+skos:prefLabel "Material type"@en;
+skos:prefLabel "Type de matériel"@fr;
+skos:altLabel "fabriqué en"@fr;
+skos:definition "Le type de matériaux utilisés";
+skos:example "Marbre, argent, or, cuivre, bronze, etc.".
+
+dbo:Man_Made_Object rdfs:subClassOf ex:Physical_Object;
+skos:prefLabel "Man-made object"@en;
+skos:prefLabel "Objet fabriqué par un homme"@fr;
+skos:altLabel "fabriqué par"@fr;
+skos:definition "Lorsqu'un objet est fabriqué par l'homme.";
+skos:example "bâtiment, jouer, statue, montre, etc".
+
+dbo:Style rdfs:subClassOf ex:Entity;
+skos:prefLabel "Style"@fr;
+skos:prefLabel "Style"@en;
+skos:definition "Catégorie de l'esthétique permettant de caractériser l'organisation des formes verbales, plastiques, musicales, que l'histoire de l'art a identifiées et décrites comme ayant fait époque ou comme étant marquées par un artiste particulier.";
+skos:example "Romantisme, Gothique, Abstrait, etc.".
+
+dbo:Medium rdfs:subClassOf dbo:Painting;
+skos:prefLabel "Medium"@en;
+skos:prefLabel "Support"@fr;
+skos:definition "Le medium désigne le support sur lequel est réalisé le tableau.";
+skos:example "Bois, tissu, etc.".
+
+
+
+
+
+
+#Les relations :
+
+ex:authorOf rdfs:domain dbo:Artist; rdfs:range dbo:Artwork;
+skos:prefLabel "author of"@en;
+skos:prefLabel "l'auteur de"@fr;
+skos:definition "Un artiste est l'auteur d'une oeuvre d'art.";
+skos:example "Claude Monet est l'auteur des Nymphéas".
+
+dbo:birthDate rdfs:domain foaf:Person; rdfs:range xsd:literal;
+skos:prefLabel "birth date"@en;
+skos:prefLabel "date de naissance"@fr;
+skos:definition "La date de naissance d'une personne.";
+skos:example "Claude Monet est né en 1840".
+
+
+dbo:birthPlace rdfs:domain foaf:Person; rdfs:range dbo:Place;
+skos:prefLabel "birth place"@en;
+skos:prefLabel "lieu de naissance"@fr;
+skos:definition "Le lieu de naissance d'une personne";
+skos:example "Claude Monet est né à Paris".
+
+
+dbo:deathDate rdfs:domain foaf:Person; rdfs:range xsd:literal;
+skos:prefLabel "death date"@en;
+skos:prefLabel "date de décès"@fr;
+skos:definition "la date de décès d'une personne.";
+skos:example "Claude Monet est mort en 1926".
+
+
+dbo:deathPlace rdfs:domain foaf:Person; rdfs:range dbo:Place;
+skos:prefLabel "death place"@en;
+skos:prefLabel "Lieu de mort"@fr;
+skos:definition "La date de mort de l'auteur.";
+skos:example "Claude Monet est mort à Giverny".
+
+
+ex:locatedIn rdfs:domain dbo:Place; rdfs:range dbo:Place;
+skos:prefLabel "located in"@en;
+skos:prefLabel "situé dans"@fr;
+skos:definition "Un lieu est localisé dans un autre lieu.";
+skos:example "Paris est en France".
+
+ex:is_created_by rdfs:domain dbo:Artwork; rdfs:range dbo:Artist;
+skos:prefLabel "is created by"@en;
+skos:prefLabel "est créé par"@fr;
+skos:definition "Une oeuvre est créé par un Artiste";
+skos:example "Les Nymphéas sont créés par Claude Monet.".
+
+dc:title rdfs:domain dbo:Artwork; rdfs:range xsd:string;
+skos:prefLabel "title"@en;
+skos:prefLabel "titre"@fr;
+skos:definition "Le titre d'une oeuvre.";
+skos:example "Le titre d'une des oeuvres de Monet est Les Nymphéas.".
+
+ex:styleOf rdfs:domain dbo:Artwork; rdfs:range dbo:Style;
+skos:prefLabel "style of"@en;
+skos:prefLabel "style de"@fr;
+skos:definition "Une oeuvre appartient à un style";
+skos:example "Les Nymphéas appartient au style des impressionistes".
+
+ex:is_done_Of rdfs:domain dbo:Painting; rdfs:range dbo:Medium;
+skos:prefLabel "is done of"@en;
+skos:prefLabel "est réalisé sur"@fr;
+skos:definition "Une peinture peut-être réalisé sur des support différents.";
+skos:example "Toile, bois, etc".
+
+
+ex:has_for_subject rdfs:domain dbo:Artwork; rdfs:range dbo:Subject;
+skos:prefLabel "has for subject"@en;
+skos:prefLabel "a pour sujet"@fr;
+skos:definition "Le sujet de l'oeuvre.";
+skos:example "La Joconde est un portrait.".
+
+ex:haslendthinCm rdfs:domain dbo:Arkwork; rdfs:range xsd:decimal;
+skos:prefLabel "has a width of"@en;
+skos:prefLabel "a une largeur de"@fr;
+skos:definition "Une oeuvre posséde une largeur (en cm).";
+skos:example "Les Tricheurs a une largeur de 130 cm".
+
+ex:hasHeightinCm rdfs:domain dbo:Artwork; rdfs:range xsd:decimal;
+skos:prefLabel "has a height of"@en;
+skos:prefLabel "a une hauteur de"@fr;
+skos:definition "Une oeuvre posséde une hauteur (en cm).";
+skos:example "Les Tricheurs a une largeur de 94 cm".
+
+dc:created rdfs:domain dbo:Man_Made_Object; rdfs:range xsd:literal;
+skos:prefLabel "creation date"@en;
+skos:prefLabel "Date de création"@fr;
+skos:definition "Date de la création de l'oeuvre";
+skos:example "Madonna (Edvard Munch) a été crée en 1895.".
+
+dc:created_start rdfs:domain dbo:Man_Made_Object; rdfs:range xsd:literal;
+skos:prefLabel "creation start date"@en;
+skos:altLabel "Date de début de création"@fr;
+skos:definition "La date à laquelle l'artiste à commencé son oeuvre.";
+skos:example "Persée tenant la tête de Méduse a été commencé en 1804.".
+
+dc:created_end rdfs:domain dbo:Man_Made_Object; rdfs:range xsd:literal;
+skos:prefLabel "creation end date"@en;
+skos:altLabel "Date de fin de création"@fr;
+skos:definition "La date à laquelle l'artiste à terminé son oeuvre.";
+skos:example "Persée tenant la tête de Méduse a été terminé en 1806.".
+
+ex:madeOf rdfs:domain dbo:Man_Made_Object; rdfs:range dbo:Material_Type;
+skos:prefLabel "made of"@en;
+skos:prefLabel "fait en"@fr;
+skos:definition "La matière de l'object, ce qui le compose.";
+skos:example "Une sculpture peut-être en marbre, ou en bronze etc".
+
+dbo:museum rdfs:domain dbo:Artwork; rdfs:range dbo:Museum;
+skos:prefLabel "is located in museum"@en;
+skos:prefLabel "est localisé dans le musée"@fr;
+skos:definition "Le lieu de conservation de l'oeuvre.";
+skos:example "Madonna (Edvard Munch) est conservé au Centre Pompidou.".
+
+dbo:private_collection rdfs:domain dbo:Artwork; rdfs:range dbo:Private_collection;
+skos:prefLabel "is located in private collection"@en;
+skos:altLabel "est localisé dans une collection privée"@fr;
+skos:definition "L'oeuvre d'art est conservé dans une collection privée.";
+skos:example "Collection Al-Thani, etc.".
+
+dbo:country rdfs:subPropertyOf ex:locatedIn;
+skos:prefLabel "is in country"@en;
+skos:prefLabel "est dans le pays"@fr;
+skos:altLabel "se trouve en"@fr;
+rdfs:range dbo:Country;
+skos:definition "The rdfs:domain (dbo:Place) of this relation is inherited from :locatedIn";
+skos:example "MSK is in Belgium, Gand is in Belgium, etc.".
+
+dbo:city rdfs:subPropertyOf ex:locatedIn;
+skos:prefLabel "is in city"@en;
+skos:prefLabel "est dans la ville de"@fr;
+skos:altLabel "se trouve à"@fr;
+rdfs:range dbo:City;
+skos:definition "The rdfs:domain (dbo:Place) of this relation is inherited from :locatedIn";
+skos:example "The MSK is in city Gand.".
+
+dbo:region rdfs:subPropertyOf ex:locatedIn;
+skos:prefLabel "is in region"@en;
+skos:altLabel "est dans la région"@fr;
+rdfs:range dbo:Region;
+skos:definition "Subdivision administrative d'un pays.";
+skos:example "Région Centre (FR), Caroline du Sud (USA), etc.".
+
+#Exemples---------------------------------------------------------------------- :
+
+#1.Maurice de Vlaminck----------------------------------------------------------- :
+
+
+dbr:Maurice_de_Vlaminck rdf:type dbo:Painter;
+foaf:lastName "Maurice"^^xsd:string;
+foaf:firstName "de Vlaminck"^^xsd:string;
+dbo:birthDate "1876-04-04"^^xsd:literal;
+dbo:birthPlace dbr:Paris;
+dbo:deathDate "1958-10-11"^^xsd:literal;
+dbo:deathPlace dbr:Rueil_la_Gadeliere;
+ex:authorOf ex:Berges_de_la_Seine_a_Chatou;
+skos:prefLabel "Maurice de Vlaminck"@fr.
+
+dbr:Rueil_la_Gadeliere rdf:type dbo:City;
+skos:prefLabel "Rueil la Gadelière"@fr;
+dbo:country dbr:France.
+
+dbr:Paris rdf:type dbo:City;
+skos:prefLabel "Paris"@fr;
+dbo:country dbr:France.
+
+ex:Berges_de_la_Seine_a_Chatou rdf:type dbo:Painting;
+dc:title "Berges de la Seine à Chatou"^^xsd:string;
+skos:prefLabel "Berges de la Seine à Chatou"@fr;
+skos:altLabel "Les Platanes à Chatou"@fr;
+dbo:museum dbr:Musee_dArt_Moderne_de_Paris;
+ex:madeOf ex:Oil_paint;
+ex:is_done_Of ex:Canvas;
+dc:created "1906"^^xsd:literal;
+ex:hasHeightinCm "59"^^xsd:decimal;
+ex:haslengthinCm "80"^^xsd:decimal;
+ex:styleOf ex:Fauvism;
+ex:has_for_subject ex:landscape.
+
+ex:Fauvism rdf:type dbo:Style;
+skos:prefLabel "fauvisme"@fr;
+skos:prefLabel "fauvism"@en;
+skos:definition "Le fauvisme est un mouvement basé sur la simplification des formes, l'utilisation de couleurs vives et la recherche d'une intensité de l'expression.".
+
+ex:Canvas rdf:type dbo:Medium;
+skos:prefLabel "toile"@fr;
+skos:prefLabel "canvas"@en;
+skos:definition "Une toile est un support pour la peinture. Elle est généralement faite de fibres de lin, de chanvre ou synthétiques.".
+
+ex:landscape rdf:type dbo:Subject;
+skos:prefLabel "paysage"@fr;
+skos:prefLabel "landscape"@en;
+skos:definition "L'oeuvre d'art représente une portion de l'espace terrestre.".
+
+dbr:Musee_dArt_Moderne_de_Paris rdf:type dbo:Museum;
+skos:prefLabel "Musée d'art moderne de la ville de Paris"@fr;
+skos:prefLabel "MAM"@fr;
+dbo:city dbr:Paris;
+dbo:country dbr:France.
+
+
+
+#2.Achille Emile Othon Friesz-------------------------------------------------- :
+
+dbr:Achille_Emile_Othon_Friesz rdf:type dbo:Painter;
+rdf:type dbo:Engraver;
+foaf:lastName "Achille Emile"^^xsd:string;
+foaf:firstName "Friesz"^^xsd:string;
+dbo:birthDate "1879-02-06"^^xsd:literal;
+dbo:birthPlace dbr:Havre;
+dbo:deathDate "1949-01-10"^^xsd:literal;
+dbo:deathPlace dbr:Paris;
+ex:authorOf ex:Paysage_de_La_Ciotat;
+skos:prefLabel "Othon Friesz"@fr.
+
+dbr:Havre rdf:type dbo:City;
+skos:prefLabel "Havre"@fr;
+dbo:country dbr:France.
+
+
+ex:Paysage_de_La_Ciotat rdf:type dbo:Painting;
+dc:title "Paysage de La Ciotat"^^xsd:string;
+skos:prefLabel "Paysage de La Ciotat"@fr;
+dbo:museum dbo:private_collection;
+ex:madeOf ex:Oil_paint;
+ex:is_done_Of ex:Canvas;
+dc:created "1907"^^xsd:literal;
+ex:hasHeightinCm "92.5"^^xsd:decimal;
+ex:haslengthinCm "60.5"^^xsd:decimal;
+ex:styleOf ex:Fauvism;
+ex:has_for_subject ex:landscape.
+
+ex:Oil_paint rdf:type dbo:Material_Type;
+skos:prefLabel "peinture à l'huile"@fr;
+skos:prefLabel "oil paint"@en;
+skos:definition "La peinture à l'huile est une peinture dont le liant ou le véhicule est une huile".
+
+
+#3.Ernst Ludwig Kirchner---------------------------------------------------- :
+
+
+dbr:Ernst_Ludwig_Kirchner rdf:type dbo:Painter;
+foaf:lastName "Ernst Ludwig"^^xsd:string;
+foaf:firstName "Kirchner"^^xsd:string;
+dbo:birthDate "1880-05-06"^^xsd:literal;
+dbo:birthPlace dbr:Aschaffenbourg;
+dbo:deathDate "1938-06-15"^^xsd:literal;
+dbo:deathPlace dbr:Davos;
+ex:authorOf ex:Franzi_a_la_chaise_sculptee;
+skos:prefLabel "Ernst Ludwig Kirchner"@fr.
+
+dbr:Aschaffenbourg rdf:type dbo:City;
+skos:prefLabel "Aschaffenbourg"@fr;
+skos:prefLabel "Aschaffenburg"@ge;
+dbo:country dbr:Germany.
+
+dbr:Davos rdf:type dbo:City;
+skos:prefLabel "Davos"@fr;
+dbo:country dbr:Switzerland.
+
+
+ex:Franzi_a_la_chaise_sculptee rdf:type dbo:Painting;
+dc:title "Fränzi à la chaise sculptée"^^xsd:string;
+skos:prefLabel "Fränzi à la chaise sculptée"@fr;
+dbo:museum dbo:Fundacion_Coleccion_Thyssen_Bornemisza;
+ex:madeOf ex:Oil_paint;
+ex:is_done_Of ex:Canvas;
+dc:created "1907"^^xsd:literal;
+ex:hasHeightinCm "71"^^xsd:decimal;
+ex:haslengthinCm "49.5"^^xsd:decimal;
+ex:styleOf ex:Fauvism;
+ex:has_for_subject ex:portrait.
+
+dbr:Fundacion_Coleccion_Thyssen_Bornemisza rdf:type dbo:Museum;
+skos:prefLabel "Fundacion Coleccion Thyssen Bornemisza"@es;
+skos:prefLabel "Musée Thyssen-Bornemisza"@fr;
+dbo:city dbr:Madrid;
+dbo:country dbr:Spain.
+
+dbr:Madrid rdf:type dbo:City;
+skos:prefLabel "Madrid"@fr;
+dbo:country dbr:Spain.
+
+
+#4. Wassily Kandinsky---------------------------------------------------------------------- :
+
+
+
+dbr:Wassily_Kandinsky rdf:type dbo:Painter;
+foaf:lastName "Wassily"^^xsd:string;
+foaf:firstName "Kandinsky"^^xsd:string;
+dbo:birthDate "1866-11-22"^^xsd:literal;
+dbo:birthPlace dbr:Moscou;
+dbo:deathDate "1944-12-13"^^xsd:literal;
+dbo:deathPlace dbr:Neuilly_sur_Seine;
+ex:authorOf ex:Paysage_dAutomne_aux_bateaux;
+skos:prefLabel "Wassily Kandinsky"@fr.
+
+dbr:Neuilly_sur_Seine rdf:type dbo:City;
+skos:prefLabel "Neuilly sur Seine"@fr;
+dbo:country dbr:France.
+
+dbr:Moscou rdf:type dbo:City;
+skos:prefLabel "Moscou"@fr;
+dbo:country dbr:Russia.
+
+
+ex:Paysage_dAutomne_aux_bateaux rdf:type dbo:Painting;
+dc:title "Paysage d'Automne aux bateaux"^^xsd:string;
+skos:prefLabel "Paysage d'Automne aux bateaux"@fr;
+dbo:museum dbo:private_collection;
+ex:madeOf ex:Oil_paint;
+ex:is_done_Of ex:Cardboard;
+dc:created "1908"^^xsd:literal;
+ex:hasHeightinCm "71.5"^^xsd:decimal;
+ex:haslengthinCm "97.5"^^xsd:decimal;
+ex:styleOf ex:Fauvism;
+ex:has_for_subject ex:landscape.
+
+ex:Cardboard rdf:type dbo:Medium;
+skos:prefLabel "carton"@fr;
+skos:prefLabel "cardboard"@en;
+skos:definition "Le carton est une matière faite de pâte à papier.".
+
+#5. Frantisek Kupka-------------------------------------------------------------------- :
+
+
+
+dbr:Frantisek_Kupka rdf:type dbo:Painter;
+foaf:lastName "Frantisek"^^xsd:string;
+foaf:firstName "Kupka"^^xsd:string;
+dbo:birthDate "1871-09-23"^^xsd:literal;
+dbo:birthPlace dbr:Opocno;
+dbo:deathDate "1957-06-24"^^xsd:literal;
+dbo:deathPlace dbr:Puteaux;
+ex:authorOf ex:La_Gamme_jaune;
+skos:prefLabel "Wassily Kandinsky"@fr.
+
+dbr:Puteaux rdf:type dbo:City;
+skos:prefLabel "Puteaux"@fr;
+dbo:country dbr:France.
+
+dbr:Opocno rdf:type dbo:City;
+skos:prefLabel "Opocno"@fr;
+dbo:country dbr:Czech_republic.
+
+
+ex:La_Gamme_jaune rdf:type dbo:Painting;
+dc:title "La Gamme jaune"^^xsd:string;
+skos:prefLabel "La Gamme jaune"@fr;
+dbo:museum dbo:Musee_dArt_Moderne_de_Paris;
+ex:madeOf ex:Oil_paint;
+ex:is_done_Of ex:Canvas;
+dc:created "1907"^^xsd:literal;
+ex:hasHeightinCm "79"^^xsd:decimal;
+ex:haslengthinCm "79"^^xsd:decimal;
+ex:styleOf ex:Fauvism;
+ex:has_for_subject ex:portrait.
+
+#6. -------------------------------------------------------------------- :
+
+dbr:Pieter_Cornelis_Mondriaan rdf:type dbo:Painter;
+foaf:lastName "Pieter"^^xsd:string;
+foaf:firstName "Mondrian"^^xsd:string;
+dbo:birthDate "1872-03-07"^^xsd:literal;
+dbo:birthPlace dbr:Amersfoort;
+dbo:deathDate "1944-02-01"^^xsd:literal;
+dbo:deathPlace dbr:New_York;
+ex:authorOf ex:Fermier_de_Zelande;
+skos:prefLabel "Piet Mondiran"@fr.
+
+dbr:New_York rdf:type dbo:City;
+skos:prefLabel "New York"@fr;
+dbo:country dbr:United_States.
+
+
+dbr:Amersfoort rdf:type dbo:City;
+skos:prefLabel "Amersfoort"@fr;
+dbo:country dbr:Netherlands.
+
+ex:Fermier_de_Zelande rdf:type dbo:Painting;
+dc:title "Fermier de Zélande"^^xsd:string;
+skos:prefLabel "Fermier de Zélande"@fr;
+dbo:museum dbo:Gemeentemuseum;
+ex:madeOf ex:Oil_paint;
+ex:is_done_Of ex:Cardboard;
+dc:created_start "1909"^^xsd:literal;
+dc:created_end "1910"^^xsd:literal;
+ex:hasHeightinCm "69"^^xsd:decimal;
+ex:haslengthinCm "53"^^xsd:decimal;
+ex:styleOf ex:Fauvism;
+ex:has_for_subject ex:portrait.
+
+ex:portrait rdf:type dbo:Subject;
+skos:prefLabel "portrait"@fr;
+skos:prefLabel "portrait"@en;
+skos:definition "Un portrait représente une personne, généralement de manière ressemblante.".
+
+dbr:Gemeentemuseum rdf:type dbo:Museum;
+skos:prefLabel "Gemeentemuseum"@ne;
+skos:prefLabel "musée d'Art de La Haye"@fr;
+dbo:city dbr:La_Haye;
+dbo:country dbr:Netherlands.
+
+dbr:La_Haye rdf:type dbo:City;
+skos:prefLabel "La Haye"@fr;
+dbo:country dbr:Netherlands.
+
+#------------------------ . Pays . ------------------------:
+dbr:United_States rdf:type dbo:Country;
+skos:prefLabel "Etats Unis"@fr;
+skos:prefLabel "United States"@en.
+
+dbr:Netherlands rdf:type dbo:Country;
+skos:prefLabel "Pays Bas"@fr;
+skos:prefLabel "the Netherlands"@en.
+
+dbr:France rdf:type dbo:Country;
+skos:prefLabel "France"@fr;
+skos:prefLabel "France"@en.
+
+dbr:Germany rdf:type dbo:Country;
+skos:prefLabel "Allemagne"@fr;
+skos:prefLabel "Germany"@en.
+
+dbr:Switzerland rdf:type dbo:Country;
+skos:prefLabel "Suisse"@fr;
+skos:prefLabel "Switzeland"@en.
+
+dbr:Spain rdf:type dbo:Country;
+skos:prefLabel "Espagne"@fr;
+skos:prefLabel "Spain"@en.
+
+dbr:Russia rdf:type dbo:Country;
+skos:prefLabel "Russie"@fr;
+skos:prefLabel "Russia"@en.
+
+dbr:Czech_republic rdf:type dbo:Country;
+skos:prefLabel "République tchèque"@fr;
+skos:prefLabel "Czech Republic"@en.
