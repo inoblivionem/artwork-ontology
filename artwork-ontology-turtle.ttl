@@ -57,15 +57,6 @@ skos:prefLabel "Peintre"@fr;
 skos:definition "Personne, artiste qui pratique l'art de la peinture.";
 skos:example "Paul Cézanne".
 
-dbo:Engraver rdfs:subClassOf dbo:Artist;
-skos:prefLabel "Engraver"@en;
-skos:prefLabel "Graveur"@fr;
-skos:definition "Personne qui pratique la gravure.";
-skos:example "Bartolomeo Cincani".
-
-
-
-
 
 
 #Type d'oeuvre d'art:
