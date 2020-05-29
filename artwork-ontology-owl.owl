@@ -13,7 +13,7 @@
      xmlns:skos="http://www.w3.org/2004/02/skos/core#">
     <owl:Ontology rdf:about="http://www.owldevoirplumelovide.org">
         <dc:creator xml:lang="fr">Caroline Plumel</dc:creator>
-        <dc:creator xml:lang="fr">Manon Ovide</dc:creator>
+        <dc:creator xml:lang="fr">inoblivionem</dc:creator>
         <dc:date xml:lang="fr">25/05/2020</dc:date>
         <dc:title xml:lang="en">Artworks ontology</dc:title>
         <rdfs:comment xml:lang="fr">Ontologie pour les oeuvres d&apos;art</rdfs:comment>
