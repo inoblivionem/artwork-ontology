@@ -16,4 +16,4 @@
 <li><a href="https://github.com/inoblivionem/artwork-ontology/blob/master/artwork-ontology-owl.owl">OWL</a></li></ul>
 
 <h1>Dataset source</h1>
-<p>Our dataset as caught in <i>Le Fauvisme ou l'épreuve du feu, éruption de la modernité en Europe ; Catalogue de l'exposition, Musée d'art moderne de la ville de Paris, 29 octobre 1999-27 février 2000 ouvrage collectif (avec Gérard Audinet, Juliette Laffon etc) 4 novembre 1999</i>.</p>
+<p>Our dataset was caught in <i>Le Fauvisme ou l'épreuve du feu, éruption de la modernité en Europe ; Catalogue de l'exposition, Musée d'art moderne de la ville de Paris, 29 octobre 1999-27 février 2000 ouvrage collectif (avec Gérard Audinet, Juliette Laffon etc) 4 novembre 1999</i>.</p>
