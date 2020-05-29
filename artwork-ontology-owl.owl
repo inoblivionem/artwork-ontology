@@ -15,8 +15,8 @@
         <dc:creator xml:lang="fr">Caroline Plumel</dc:creator>
         <dc:creator xml:lang="fr">Manon Ovide</dc:creator>
         <dc:date xml:lang="fr">25/05/2020</dc:date>
-        <dc:title xml:lang="fr">Fauvisme(peinture)</dc:title>
-        <rdfs:comment>Ontologie sur des peintures du mouvements artistique fauve(fauvisme).</rdfs:comment>
+        <dc:title xml:lang="en">Artworks ontology</dc:title>
+        <rdfs:comment xml:lang="fr">Ontologie pour les oeuvres d&apos;art</rdfs:comment>
     </owl:Ontology>
     
 
@@ -29,6 +29,18 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://dbpedia.org/ontology/city -->
+
+    <owl:AnnotationProperty rdf:about="http://dbpedia.org/ontology/city"/>
+    
+
+
+    <!-- http://dbpedia.org/ontology/country -->
+
+    <owl:AnnotationProperty rdf:about="http://dbpedia.org/ontology/country"/>
     
 
 
