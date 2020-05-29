@@ -89,12 +89,6 @@ skos:prefLabel "Pays"@fr;
 skos:definition "Division territoriale habitée par une collectivité, et constituant une entité géographique et humaine.";
 skos:example "France".
 
-dbo:Region rdfs:subClassOf dbo:Place;
-skos:prefLabel "Region"@en;
-skos:prefLabel "Région"@fr;
-skos:definition "Subdivision administrative d'un pays.";
-skos:example "Région Centre (FR), Caroline du Sud (USA), etc.".
-
 
 dbo:Museum rdfs:subClassOf dbo:Place;
 skos:prefLabel "Museum"@en;
@@ -103,7 +97,7 @@ skos:altLabel "Institut";
 skos:definition "Établissement dans lequel sont rassemblées et classées des collections d'objets d'intérêt historique, technique, scientifique, artistique, en vue de leur conservation et de leur présentation au public.";
 skos:example "Louvre, Grand Palais, Petit Palais, etc.".
 
-dbo:Private_collection rdfs:subClassOf dbo:Place;
+ex:Private_collection rdfs:subClassOf dbo:Place;
 skos:prefLabel "Private Collection"@en;
 skos:altLabel "Collection Privée"@fr;
 skos:definition "Une collection privée est une collection d'œuvres d'art rassemblées par une personne privée.";
@@ -117,27 +111,20 @@ skos:example "Collection Al-Thani, etc.".
 
 #Le matériel:
 
-dbo:Material_Type rdfs:subClassOf ex:Entity;
+ex:Material_Type rdfs:subClassOf ex:Entity;
 skos:prefLabel "Material type"@en;
 skos:prefLabel "Type de matériel"@fr;
 skos:altLabel "fabriqué en"@fr;
 skos:definition "Le type de matériaux utilisés";
 skos:example "Marbre, argent, or, cuivre, bronze, etc.".
 
-dbo:Man_Made_Object rdfs:subClassOf ex:Physical_Object;
-skos:prefLabel "Man-made object"@en;
-skos:prefLabel "Objet fabriqué par un homme"@fr;
-skos:altLabel "fabriqué par"@fr;
-skos:definition "Lorsqu'un objet est fabriqué par l'homme.";
-skos:example "bâtiment, jouer, statue, montre, etc".
-
-dbo:Style rdfs:subClassOf ex:Entity;
+ex:Style rdfs:subClassOf ex:Entity;
 skos:prefLabel "Style"@fr;
 skos:prefLabel "Style"@en;
 skos:definition "Catégorie de l'esthétique permettant de caractériser l'organisation des formes verbales, plastiques, musicales, que l'histoire de l'art a identifiées et décrites comme ayant fait époque ou comme étant marquées par un artiste particulier.";
 skos:example "Romantisme, Gothique, Abstrait, etc.".
 
-dbo:Medium rdfs:subClassOf dbo:Painting;
+ex:Medium rdfs:subClassOf dbo:Painting;
 skos:prefLabel "Medium"@en;
 skos:prefLabel "Support"@fr;
 skos:definition "Le medium désigne le support sur lequel est réalisé le tableau.";
@@ -202,13 +189,13 @@ skos:prefLabel "titre"@fr;
 skos:definition "Le titre d'une oeuvre.";
 skos:example "Le titre d'une des oeuvres de Monet est Les Nymphéas.".
 
-ex:styleOf rdfs:domain dbo:Artwork; rdfs:range dbo:Style;
+ex:styleOf rdfs:domain dbo:Artwork; rdfs:range ex:Style;
 skos:prefLabel "style of"@en;
 skos:prefLabel "style de"@fr;
 skos:definition "Une oeuvre appartient à un style";
 skos:example "Les Nymphéas appartient au style des impressionistes".
 
-ex:is_done_Of rdfs:domain dbo:Painting; rdfs:range dbo:Medium;
+ex:is_done_Of rdfs:domain dbo:Painting; rdfs:range ex:Medium;
 skos:prefLabel "is done of"@en;
 skos:prefLabel "est réalisé sur"@fr;
 skos:definition "Une peinture peut-être réalisé sur des support différents.";
@@ -221,7 +208,7 @@ skos:prefLabel "a pour sujet"@fr;
 skos:definition "Le sujet de l'oeuvre.";
 skos:example "La Joconde est un portrait.".
 
-ex:haslendthinCm rdfs:domain dbo:Arkwork; rdfs:range xsd:decimal;
+ex:hasLendthinCm rdfs:domain dbo:Arkwork; rdfs:range xsd:decimal;
 skos:prefLabel "has a width of"@en;
 skos:prefLabel "a une largeur de"@fr;
 skos:definition "Une oeuvre posséde une largeur (en cm).";
@@ -233,25 +220,25 @@ skos:prefLabel "a une hauteur de"@fr;
 skos:definition "Une oeuvre posséde une hauteur (en cm).";
 skos:example "Les Tricheurs a une largeur de 94 cm".
 
-dc:created rdfs:domain dbo:Man_Made_Object; rdfs:range xsd:literal;
+dc:created rdfs:domain dbo:Artwork; rdfs:range xsd:literal;
 skos:prefLabel "creation date"@en;
 skos:prefLabel "Date de création"@fr;
 skos:definition "Date de la création de l'oeuvre";
 skos:example "Madonna (Edvard Munch) a été crée en 1895.".
 
-dc:created_start rdfs:domain dbo:Man_Made_Object; rdfs:range xsd:literal;
+ex:created_start rdfs:domain dbo:Artwork; rdfs:range xsd:literal;
 skos:prefLabel "creation start date"@en;
 skos:altLabel "Date de début de création"@fr;
 skos:definition "La date à laquelle l'artiste à commencé son oeuvre.";
 skos:example "Persée tenant la tête de Méduse a été commencé en 1804.".
 
-dc:created_end rdfs:domain dbo:Man_Made_Object; rdfs:range xsd:literal;
+ex:created_end rdfs:domain dbo:Artwork; rdfs:range xsd:literal;
 skos:prefLabel "creation end date"@en;
 skos:altLabel "Date de fin de création"@fr;
 skos:definition "La date à laquelle l'artiste à terminé son oeuvre.";
 skos:example "Persée tenant la tête de Méduse a été terminé en 1806.".
 
-ex:madeOf rdfs:domain dbo:Man_Made_Object; rdfs:range dbo:Material_Type;
+ex:madeOf rdfs:domain dbo:Artwork; rdfs:range ex:Material_Type;
 skos:prefLabel "made of"@en;
 skos:prefLabel "fait en"@fr;
 skos:definition "La matière de l'object, ce qui le compose.";
@@ -263,7 +250,7 @@ skos:prefLabel "est localisé dans le musée"@fr;
 skos:definition "Le lieu de conservation de l'oeuvre.";
 skos:example "Madonna (Edvard Munch) est conservé au Centre Pompidou.".
 
-dbo:private_collection rdfs:domain dbo:Artwork; rdfs:range dbo:Private_collection;
+ex:private_collection rdfs:domain dbo:Artwork; rdfs:range ex:Private_collection;
 skos:prefLabel "is located in private collection"@en;
 skos:altLabel "est localisé dans une collection privée"@fr;
 skos:definition "L'oeuvre d'art est conservé dans une collection privée.";
@@ -285,12 +272,7 @@ rdfs:range dbo:City;
 skos:definition "The rdfs:domain (dbo:Place) of this relation is inherited from :locatedIn";
 skos:example "The MSK is in city Gand.".
 
-dbo:region rdfs:subPropertyOf ex:locatedIn;
-skos:prefLabel "is in region"@en;
-skos:altLabel "est dans la région"@fr;
-rdfs:range dbo:Region;
-skos:definition "Subdivision administrative d'un pays.";
-skos:example "Région Centre (FR), Caroline du Sud (USA), etc.".
+
 
 #Exemples---------------------------------------------------------------------- :
 
@@ -328,12 +310,12 @@ ex:haslengthinCm "80"^^xsd:decimal;
 ex:styleOf ex:Fauvism;
 ex:has_for_subject ex:landscape.
 
-ex:Fauvism rdf:type dbo:Style;
+ex:Fauvism rdf:type ex:Style;
 skos:prefLabel "fauvisme"@fr;
 skos:prefLabel "fauvism"@en;
 skos:definition "Le fauvisme est un mouvement basé sur la simplification des formes, l'utilisation de couleurs vives et la recherche d'une intensité de l'expression.".
 
-ex:Canvas rdf:type dbo:Medium;
+ex:Canvas rdf:type ex:Medium;
 skos:prefLabel "toile"@fr;
 skos:prefLabel "canvas"@en;
 skos:definition "Une toile est un support pour la peinture. Elle est généralement faite de fibres de lin, de chanvre ou synthétiques.".
@@ -354,7 +336,6 @@ dbo:country dbr:France.
 #2.Achille Emile Othon Friesz-------------------------------------------------- :
 
 dbr:Achille_Emile_Othon_Friesz rdf:type dbo:Painter;
-rdf:type dbo:Engraver;
 foaf:lastName "Achille Emile"^^xsd:string;
 foaf:firstName "Friesz"^^xsd:string;
 dbo:birthDate "1879-02-06"^^xsd:literal;
@@ -372,7 +353,7 @@ dbo:country dbr:France.
 ex:Paysage_de_La_Ciotat rdf:type dbo:Painting;
 dc:title "Paysage de La Ciotat"^^xsd:string;
 skos:prefLabel "Paysage de La Ciotat"@fr;
-dbo:museum dbo:private_collection;
+ex:private_collection ex:collection_personnelle;
 ex:madeOf ex:Oil_paint;
 ex:is_done_Of ex:Canvas;
 dc:created "1907"^^xsd:literal;
@@ -381,7 +362,7 @@ ex:haslengthinCm "60.5"^^xsd:decimal;
 ex:styleOf ex:Fauvism;
 ex:has_for_subject ex:landscape.
 
-ex:Oil_paint rdf:type dbo:Material_Type;
+ex:Oil_paint rdf:type ex:Material_Type;
 skos:prefLabel "peinture à l'huile"@fr;
 skos:prefLabel "oil paint"@en;
 skos:definition "La peinture à l'huile est une peinture dont le liant ou le véhicule est une huile".
@@ -459,7 +440,7 @@ dbo:country dbr:Russia.
 ex:Paysage_dAutomne_aux_bateaux rdf:type dbo:Painting;
 dc:title "Paysage d'Automne aux bateaux"^^xsd:string;
 skos:prefLabel "Paysage d'Automne aux bateaux"@fr;
-dbo:museum dbo:private_collection;
+dbo:private_collection ex:collection_personnelle;
 ex:madeOf ex:Oil_paint;
 ex:is_done_Of ex:Cardboard;
 dc:created "1908"^^xsd:literal;
@@ -468,7 +449,7 @@ ex:haslengthinCm "97.5"^^xsd:decimal;
 ex:styleOf ex:Fauvism;
 ex:has_for_subject ex:landscape.
 
-ex:Cardboard rdf:type dbo:Medium;
+ex:Cardboard rdf:type ex:Medium;
 skos:prefLabel "carton"@fr;
 skos:prefLabel "cardboard"@en;
 skos:definition "Le carton est une matière faite de pâte à papier.".
@@ -524,40 +505,6 @@ dbr:New_York rdf:type dbo:City;
 skos:prefLabel "New York"@fr;
 dbo:country dbr:United_States.
 
-
-dbr:Amersfoort rdf:type dbo:City;
-skos:prefLabel "Amersfoort"@fr;
-dbo:country dbr:Netherlands.
-
-ex:Fermier_de_Zelande rdf:type dbo:Painting;
-dc:title "Fermier de Zélande"^^xsd:string;
-skos:prefLabel "Fermier de Zélande"@fr;
-dbo:museum dbo:Gemeentemuseum;
-ex:madeOf ex:Oil_paint;
-ex:is_done_Of ex:Cardboard;
-dc:created_start "1909"^^xsd:literal;
-dc:created_end "1910"^^xsd:literal;
-ex:hasHeightinCm "69"^^xsd:decimal;
-ex:haslengthinCm "53"^^xsd:decimal;
-ex:styleOf ex:Fauvism;
-ex:has_for_subject ex:portrait.
-
-ex:portrait rdf:type dbo:Subject;
-skos:prefLabel "portrait"@fr;
-skos:prefLabel "portrait"@en;
-skos:definition "Un portrait représente une personne, généralement de manière ressemblante.".
-
-dbr:Gemeentemuseum rdf:type dbo:Museum;
-skos:prefLabel "Gemeentemuseum"@ne;
-skos:prefLabel "musée d'Art de La Haye"@fr;
-dbo:city dbr:La_Haye;
-dbo:country dbr:Netherlands.
-
-dbr:La_Haye rdf:type dbo:City;
-skos:prefLabel "La Haye"@fr;
-dbo:country dbr:Netherlands.
-
-#------------------------ . Pays . ------------------------:
 dbr:United_States rdf:type dbo:Country;
 skos:prefLabel "Etats Unis"@fr;
 skos:prefLabel "United States"@en.
@@ -589,3 +536,36 @@ skos:prefLabel "Russia"@en.
 dbr:Czech_republic rdf:type dbo:Country;
 skos:prefLabel "République tchèque"@fr;
 skos:prefLabel "Czech Republic"@en.
+
+dbr:Amersfoort rdf:type dbo:City;
+skos:prefLabel "Amersfoort"@fr;
+dbo:country dbr:Netherlands.
+
+
+ex:Fermier_de_Zelande rdf:type dbo:Painting;
+dc:title "Fermier de Zélande"^^xsd:string;
+skos:prefLabel "Fermier de Zélande"@fr;
+dbo:museum dbo:Gemeentemuseum;
+ex:madeOf ex:Oil_paint;
+ex:is_done_Of ex:Cardboard;
+dc:created_start "1909"^^xsd:literal;
+dc:created_end "1910"^^xsd:literal;
+ex:hasHeightinCm "69"^^xsd:decimal;
+ex:haslengthinCm "53"^^xsd:decimal;
+ex:styleOf ex:Fauvism;
+ex:has_for_subject ex:portrait.
+
+ex:portrait rdf:type dbo:Subject;
+skos:prefLabel "portrait"@fr;
+skos:prefLabel "portrait"@en;
+skos:definition "Un portrait représente une personne, généralement de manière ressemblante.".
+
+dbr:Gemeentemuseum rdf:type dbo:Museum;
+skos:prefLabel "Gemeentemuseum"@ne;
+skos:prefLabel "musée d'Art de La Haye"@fr;
+dbo:city dbr:La_Haye;
+dbo:country dbr:Netherlands.
+
+dbr:La_Haye rdf:type dbo:City;
+skos:prefLabel "La Haye"@fr;
+dbo:country dbr:Netherlands.
